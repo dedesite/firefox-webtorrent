@@ -3,10 +3,9 @@
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import { Store, wrapStore } from 'webext-redux'
+import { Store } from 'webext-redux'
 
 import Theme from '@brave/brave-ui/theme/brave-default'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
@@ -16,12 +15,6 @@ import App from './components/app'
 
 // Constants
 import { ApplicationState } from './constants/webtorrentState'
-import reducers from './background/reducers'
-
-const webtorrentStore = createStore(reducers)
-wrapStore(webtorrentStore, {
-  portName: 'WEBTORRENT'
-})
 
 //import '$web-components/app.global.scss'
 
@@ -54,12 +47,14 @@ const unsubscribe = store.subscribe(async () => {
 
   try {
     const tab: any = await new Promise(resolve => chrome.tabs.getCurrent(resolve))
-    render(<Provider store={store}>
+    const container = document.getElementById('root');
+    const root = createRoot(container);
+    root.render(<Provider store={store}>
       <GlobalStyle/>
       <ThemeProvider theme={Theme}>
         <App tabId={tab.id} />
       </ThemeProvider>
-    </Provider>, document.getElementById('root'))
+    </Provider>)
   } catch (err) {
     console.log('Problem mounting webtorrent', err)
   }
