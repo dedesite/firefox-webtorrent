@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@brave/brave-ui": "^0.40.4",
+        "@types/webtorrent": "^0.109.4",
         "buffer": "^6.0.3",
         "chrome-dgram": "^3.0.6",
         "chrome-dns": "^1.0.1",

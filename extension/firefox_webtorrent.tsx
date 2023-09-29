@@ -5,7 +5,8 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Store } from 'webext-redux'
+import { createStore } from 'redux'
+import { Store, wrapStore } from 'webext-redux'
 
 import Theme from '@brave/brave-ui/theme/brave-default'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
@@ -15,6 +16,12 @@ import App from './components/app'
 
 // Constants
 import { ApplicationState } from './constants/webtorrentState'
+import reducers from './background/reducers'
+
+const webtorrentStore = createStore(reducers)
+wrapStore(webtorrentStore, {
+  portName: 'WEBTORRENT'
+})
 
 //import '$web-components/app.global.scss'
 

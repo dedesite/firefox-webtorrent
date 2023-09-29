@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import * as WebTorrent from 'webtorrent'
+import WebTorrent from 'webtorrent/dist/webtorrent.min.js'
 import { addTorrentEvents, removeTorrentEvents } from './events/torrentEvents'
 import { addWebtorrentEvents } from './events/webtorrentEvents'
 import { AddressInfo } from 'net'
@@ -13,9 +13,9 @@ import * as JSZip from 'jszip'
 let webTorrent: WebTorrent.Instance | undefined
 let servers: { [key: string]: any } = { }
 
-export const getWebTorrent = () => {
+const getWebTorrent = () : WebTorrent.Instance =>  {
   if (!webTorrent) {
-    webTorrent = new WebTorrent({ tracker: { wrtc: false } })
+    webTorrent = new WebTorrent(/*{ tracker: { wrtc: false } }*/)
     addWebtorrentEvents(webTorrent)
   }
 
@@ -54,7 +54,8 @@ export const createServer = (torrent: WebTorrent.Torrent, cb: (serverURL: string
 
 export const addTorrent = (torrentId: string | Instance) => {
   const torrent = getWebTorrent().add(torrentId)
-  addTorrentEvents(torrent)
+  // @bug : causes weird webpack bug...
+  // addTorrentEvents(torrent)
 }
 
 export const findTorrent = (infoHash: string) => {
@@ -70,7 +71,8 @@ const maybeDestroyWebTorrent = () => {
 export const delTorrent = (infoHash: string) => {
   const torrent = findTorrent(infoHash)
   if (torrent) {
-    removeTorrentEvents(torrent)
+    // @bug : causes weird webpack bug...
+    // removeTorrentEvents(torrent)
     torrent.destroy()
   }
 
