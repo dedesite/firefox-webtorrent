@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { Button } from 'brave-ui/components'
+import { Button } from '@brave/brave-ui/components'
 import * as React from 'react'
 
 // Constants

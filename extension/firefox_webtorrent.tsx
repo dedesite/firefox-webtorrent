@@ -7,7 +7,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Store } from 'webext-redux'
 
-import Theme from 'brave-ui/theme/brave-default'
+import Theme from '@brave/brave-ui/theme/brave-default'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 // Components
@@ -16,7 +16,7 @@ import App from './components/app'
 // Constants
 import { ApplicationState } from './constants/webtorrentState'
 
-import '$web-components/app.global.scss'
+//import '$web-components/app.global.scss'
 
 // This is a hack that's needed for lazy loading
 // Basically we need the browser to restart the navigation, so we redirect first

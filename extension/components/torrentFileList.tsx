@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import { Button, Table } from 'brave-ui/components'
-import { Cell, Row } from 'brave-ui/components/dataTables/table/index'
+import { Button, Table } from '@brave/brave-ui/components'
+import { Cell, Row } from '@brave/brave-ui/components/dataTables/table/index'
 import * as prettierBytes from 'prettier-bytes'
 import * as React from 'react'
 import styled from 'styled-components'

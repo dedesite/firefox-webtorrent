@@ -9,24 +9,20 @@
   },
   "background": {
     "scripts": [
-      "extension/out/brave_webtorrent_background.bundle.js"
+      "out/bundle.js"
     ],
     "persistent": false
   },
-  "web_accessible_resources": [
-    "extension/brave_webtorrent.html",
-    "extension/brave_webtorrent_2.html"
-  ],
   "protocol_handlers": [
     {
       "protocol": "magnet",
       "name": "Magnet Extension",
-      "uriTemplate": "/firefox-webtorrent.html#!/%s"
+      "uriTemplate": "firefox_webtorrent.html#!/%s"
     },
     {
       "protocol": "ext+torrent",
       "name": "Torrent Extension",
-      "uriTemplate": "/firefox-webtorrent.html#!/%s"
+      "uriTemplate": "firefox-webtorrent.html#!/%s"
     }
   ],
   "permissions": [
@@ -36,17 +32,5 @@
     "webNavigation",
     "<all_urls>" // without '<all_urls>' sometimes get CORS issues when fetching the torrent file
   ],
-  "sockets": {
-    "udp": {
-      "send": "*",
-      "bind": "*"
-    },
-    "tcp": {
-      "connect": "*"
-    },
-    "tcpServer": {
-      "listen": "*:*"
-    }
-  },
-  "content_security_policy": "frame-ancestors 'none'; default-src 'self'; connect-src 'self' http: https:; font-src 'self' data:; script-src 'self'; media-src 'self' http://127.0.0.1:*; form-action 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://127.0.0.1:*; object-src 'self' http://127.0.0.1:*; frame-src 'self' http://127.0.0.1:*;",
+  "content_security_policy": "frame-ancestors 'none'; default-src 'self'; connect-src 'self' http: https:; font-src 'self' data:; script-src 'self'; media-src 'self' http://127.0.0.1:*; form-action 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://127.0.0.1:*; object-src 'self' http://127.0.0.1:*; frame-src 'self' http://127.0.0.1:*;"
 }

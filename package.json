@@ -8,17 +8,20 @@
     "license": "GPL-3.0-or-later",
     "devDependencies": {
         "@types/chrome": "^0.0.246",
+        "css-loader": "^6.8.1",
         "ts-loader": "^9.4.4",
         "typescript": "^5.2.2",
         "webpack": "^5.88.2",
         "webpack-cli": "^5.1.4"
     },
     "dependencies": {
+        "@brave/brave-ui": "^0.40.4",
         "jszip": "^3.10.1",
         "net": "^1.0.2",
         "parse-torrent": "^11.0.14",
         "prettier-bytes": "^1.0.4",
         "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-redux": "^8.1.2",
         "redux": "^4.2.1",
         "styled-components": "^6.0.8",
