@@ -32,5 +32,5 @@
     "webNavigation",
     "<all_urls>" // without '<all_urls>' sometimes get CORS issues when fetching the torrent file
   ],
-  "content_security_policy": "frame-ancestors 'none'; default-src 'self'; connect-src 'self' http: https:; font-src 'self' data:; script-src 'self'; media-src 'self' http://127.0.0.1:*; form-action 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://127.0.0.1:*; object-src 'self' http://127.0.0.1:*; frame-src 'self' http://127.0.0.1:*;"
+  "content_security_policy": "frame-ancestors 'none'; default-src 'self'; connect-src 'self' http: https: wss:; font-src 'self' data:; script-src 'self'; media-src 'self' http://127.0.0.1:*; form-action 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://127.0.0.1:*; object-src 'self' http://127.0.0.1:*; frame-src 'self' http://127.0.0.1:*;"
 }
