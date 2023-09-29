@@ -14,6 +14,7 @@ chrome.tabs.query({}, tabs => {
   }
 })
 
+// @bug : doesn't work for now
 chrome.webNavigation.onCommitted.addListener(
   (details: chrome.webNavigation.WebNavigationFramedCallbackDetails) => {
     tabActions.tabUpdated(details.tabId, details)
@@ -41,8 +42,11 @@ chrome.webNavigation.onCommitted.addListener(
  url: [
     // when handling URLs as chrome-extension://...
     // the actual torrent URL is within query parameters
-    { schemes: ['chrome-extension'], queryContains: '.torrent' },
-    { schemes: ['chrome-extension'], queryContains: 'magnet%3A' }]
+    // @bug : queryContains doesn't work
+    { schemes: ['moz-extension'] }
+    // { schemes: ['moz-extension'], queryContains: '.torrent' },
+    // { schemes: ['moz-extension'], queryContains: 'magnet%3A' }
+  ]
   }
 )
 

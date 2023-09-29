@@ -4,7 +4,7 @@ const webpack = require("webpack");
 module.exports = {
   entry: {
     main: "./extension/firefox_webtorrent.tsx",
-    background: "./extension/background/store.ts",
+    background: "./extension/background.ts",
   },
   module: {
     rules: [

@@ -8,6 +8,7 @@
     "license": "GPL-3.0-or-later",
     "devDependencies": {
         "@types/chrome": "^0.0.246",
+        "@typescript/lib-dom": "npm:@types/web@^0.0.115",
         "css-loader": "^6.8.1",
         "ts-loader": "^9.4.4",
         "typescript": "^5.2.2",
@@ -16,6 +17,7 @@
     },
     "dependencies": {
         "@brave/brave-ui": "^0.40.4",
+        "@types/firefox-webext-browser": "^111.0.2",
         "@types/webtorrent": "^0.109.4",
         "buffer": "^6.0.3",
         "chrome-dgram": "^3.0.6",

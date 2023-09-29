@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+// Fix a webpack problem : https://github.com/webtorrent/webtorrent#webpack
 import WebTorrent from 'webtorrent/dist/webtorrent.min.js'
 import { addTorrentEvents, removeTorrentEvents } from './events/torrentEvents'
 import { addWebtorrentEvents } from './events/webtorrentEvents'

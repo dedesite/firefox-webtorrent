@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-import * as ParseTorrent from 'parse-torrent'
+import ParseTorrent from 'parse-torrent'
 import { Torrent } from 'webtorrent'
 import { parse } from 'querystring'
 
@@ -36,6 +36,7 @@ const tabUpdated = (tabId: number, url: string, state: TorrentsState) => {
       newInfoHash = infoHash
       newTorrentState = { tabId, torrentId, name, infoHash, ix }
     } catch (error) {
+      console.error(error);
       newTorrentState = { tabId, torrentId, errorMsg: error.message }
     }
   } else if (parsedURL.protocol === 'https:' || parsedURL.protocol === 'http:') {
