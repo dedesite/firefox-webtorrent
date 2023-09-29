@@ -1,0 +1,30 @@
+{
+    "name": "firefox-webtorrent",
+    "version": "0.1.0",
+    "description": "WebTorrent extension gives ability to open .torrent files content and magnet link in Firefox.",
+    "scripts": {
+        "build": "webpack"
+    },
+    "license": "GPL-3.0-or-later",
+    "devDependencies": {
+        "@types/chrome": "^0.0.246",
+        "ts-loader": "^9.4.4",
+        "typescript": "^5.2.2",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "jszip": "^3.10.1",
+        "net": "^1.0.2",
+        "parse-torrent": "^11.0.14",
+        "prettier-bytes": "^1.0.4",
+        "react": "^18.2.0",
+        "react-redux": "^8.1.2",
+        "redux": "^4.2.1",
+        "styled-components": "^6.0.8",
+        "throttleit": "^1.0.0",
+        "typesafe-actions": "^5.1.0",
+        "webext-redux": "^2.1.9",
+        "webtorrent": "^2.1.25"
+    }
+}
