@@ -7,12 +7,6 @@
     "48": "assets/icons/webtorrent-logo-48.png",
     "96": "assets/icons/webtorrent-logo-96.png"
   },
-  "background": {
-    "scripts": [
-      "out/bundle.js"
-    ],
-    "persistent": false
-  },
   "protocol_handlers": [
     {
       "protocol": "magnet",
