@@ -16,12 +16,30 @@ let servers: { [key: string]: any } = { }
 
 const getWebTorrent = () : WebTorrent.Instance =>  {
   if (!webTorrent) {
+    // Can't use wrtc false because we are not in a chromeapp extension
     webTorrent = new WebTorrent(/*{ tracker: { wrtc: false } }*/)
+    // Attempt to use v2 API but serviceWorker doesn't work in WebExtension
+    // navigator.serviceWorker.register('webtorrent/dist/sw.min.js')
+    // const controller = await navigator.serviceWorker.ready
+    // const opts = {
+    //   // Only allow requests from this origin ('chrome-extension://...) so
+    //   // websites cannot violate same-origin policy by reading contents of
+    //   // active torrents.
+    //   origin: window.location.origin,
+    //   // Use hostname option to mitigate DNS rebinding
+    //   // Ref: https://github.com/brave/browser-laptop/issues/12616
+    //   hostname: '127.0.0.1',
+    //   controller
+    // }
+    // webTorrent.createServer(opts)
     addWebtorrentEvents(webTorrent)
   }
 
   return webTorrent
 }
+
+//console.log("Wait for webtorrent");
+//await getWebTorrent();
 
 export const createServer = (torrent: WebTorrent.Torrent, cb: (serverURL: string) => void) => {
   if (!torrent.infoHash) return // torrent is not ready
@@ -35,6 +53,8 @@ export const createServer = (torrent: WebTorrent.Torrent, cb: (serverURL: string
     // Ref: https://github.com/brave/browser-laptop/issues/12616
     hostname: '127.0.0.1'
   }
+  // Create server isn't link to torrent anymore (WebTorrent v1 API)
+  // And it was only available through node.js
   const server = torrent.createServer(opts)
   if (!server) return
 
@@ -55,8 +75,8 @@ export const createServer = (torrent: WebTorrent.Torrent, cb: (serverURL: string
 
 export const addTorrent = (torrentId: string | Instance) => {
   const torrent = getWebTorrent().add(torrentId)
-  // @bug : causes weird webpack bug...
-  // addTorrentEvents(torrent)
+  console.log("Torrent added", torrent);
+  addTorrentEvents(torrent)
 }
 
 export const findTorrent = (infoHash: string) => {
